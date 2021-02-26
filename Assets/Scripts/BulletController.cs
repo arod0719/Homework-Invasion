@@ -6,7 +6,8 @@ public class BulletController : MonoBehaviour
 {
 
     private Transform bullet;
-    public GameObject assignment;
+    public GameObject explosion;
+    private GameObject assignment;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +19,7 @@ public class BulletController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        bullet.position += Vector3.up * 18.0f * Time.deltaTime;
+        bullet.position += Vector3.up * 25.0f * Time.deltaTime;
         if (bullet.position.y >= 10)
             Destroy(gameObject);
     }
@@ -42,6 +43,12 @@ public class BulletController : MonoBehaviour
             Destroy(target.gameObject);
             Destroy(gameObject);
             assignment = Instantiate(assignment, location.position, location.rotation, location.parent);
+        }
+
+        if (target.tag != "Player")
+        {
+            GameObject effect = Instantiate(explosion, target.transform.position, Quaternion.identity);
+            Destroy(effect, 2f);
         }
     }
 }

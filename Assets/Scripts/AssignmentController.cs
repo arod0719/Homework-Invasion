@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AssignmentController : MonoBehaviour
 {
@@ -15,7 +16,8 @@ public class AssignmentController : MonoBehaviour
         else if (target.tag == "Player")
         {
             Destroy(target.gameObject);
-            //end game
+            Score.won = false;
+            SceneManager.LoadScene("gameovermenu");
         }
     }
 }

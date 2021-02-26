@@ -7,6 +7,8 @@ public class Score : MonoBehaviour
 {
     private Text scoreText;
     public static int score = 0;
+    public static bool won = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,5 +19,11 @@ public class Score : MonoBehaviour
     void Update()
     {
         scoreText.text = score.ToString();
+    }
+
+    public static void ResetDefault()
+    {
+        score = 0;
+        won = true;
     }
 }

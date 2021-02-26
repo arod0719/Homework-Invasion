@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AssignmentGroupController : MonoBehaviour
 {
     private Transform assignmentGroup;
-    private float speed = 0.05f;
+    private float speed = 0.05f; //0.05
     void Start()
     {
         InvokeRepeating("MoveAssignment", 1.0f, 0.01f);
@@ -35,7 +36,7 @@ public class AssignmentGroupController : MonoBehaviour
         {
             Score.score += LBCounter.LBCount * 500;
             CancelInvoke();
-            //load next scene / end game
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 }
