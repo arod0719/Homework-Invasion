@@ -10,6 +10,7 @@ public class AssignmentController : MonoBehaviour
         Destroy(target.gameObject);
         if (target.tag == "leisure block")
         {
+            SoundManagerScript.PlaySound("impact");
             Destroy(target.gameObject);
         }
 

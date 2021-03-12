@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
         {
             cooldown = Time.time + 0.4f;
             Instantiate(bullet, player.position, player.rotation);
+            SoundManagerScript.PlaySound("shotFired");
         }
 
         if (Input.GetKeyDown(KeyCode.R))

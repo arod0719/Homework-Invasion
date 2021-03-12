@@ -48,6 +48,7 @@ public class BulletController : MonoBehaviour
         if (target.tag != "Player")
         {
             GameObject effect = Instantiate(explosion, target.transform.position, Quaternion.identity);
+            SoundManagerScript.PlaySound("impact");
             Destroy(effect, 2f);
         }
     }

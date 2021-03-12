@@ -36,7 +36,15 @@ public class AssignmentGroupController : MonoBehaviour
         {
             Score.score += LBCounter.LBCount * 500;
             CancelInvoke();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            SoundManagerScript.PlaySound("levelComplete");
+            StartCoroutine(waitThreeSeconds());
+            
         }
+    }
+    IEnumerator waitThreeSeconds()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
     }
 }
